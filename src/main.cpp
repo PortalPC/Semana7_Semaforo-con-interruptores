@@ -4,7 +4,7 @@
 
 char a = 0;
 void config_IE (void){
-  EIMSK |= (1<<int0);
+  EIMSK |= (1<<INT0);
   EICRA |= (1<<ISC01);
   DDRD &= ~(0x04);
   PORTD |= 0X04;
@@ -43,6 +43,11 @@ int main(void){
       PORTB |= 0X01;
 
       _delay_ms(5000);
+      PORTD &= ~(0xE0);
+      PORTD &= ~(0x07);
+      PORTD |= 0x80;
+      PORTB |= 0x02;
+      _delay_ms(1000);
       
     }
   }
